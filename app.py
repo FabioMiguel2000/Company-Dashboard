@@ -4,18 +4,15 @@ from sqlalchemy import MetaData, create_engine, Table, Column, Integer, String
 
 app = Flask(__name__)
 
-DATABASE_URI = 'mysql://root:root123@localhost/classicmodels'
+DATABASE_URI = 'mysql+pymysql://root:root123@db/classicmodels'
 
-# Configuração do banco de dados
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Inicializar o SQLAlchemy
 db = SQLAlchemy(app)
 engine = create_engine(DATABASE_URI)
 metadata = MetaData()
 metadata.bind = engine
-
 
 class Employees(db.Model):
     __table__ = Table('employees', metadata,
@@ -27,14 +24,11 @@ class Employees(db.Model):
     def __repr__(self):
         return '<Employee %r>' % self.name
 
-
 @app.route('/')
 def hello_world():
-    # Access db.engine within the application context
     with app.app_context():
         employees = Employees.query.all()
     return render_template('index.html', employees=employees)
 
-
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
