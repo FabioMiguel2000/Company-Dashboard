@@ -1,18 +1,22 @@
 version: '3.8'
 
 services:
-  web:
-    build: .
+  server:
+    container_name: company_server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
     ports:
       - "5001:5000"
     environment:
       - FLASK_ENV=development
       - FLASK_APP=app.py
-      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:root123@db/classicmodels  # Use your custom password here
+      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:root123@db/classicmodels 
     depends_on:
       - db
 
   db:
+    container_name: company_db
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: root123
@@ -20,8 +24,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
-      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+      - ./server/mysql_data:/var/lib/mysql
+      - ./server/database.sql:/docker-entrypoint-initdb.d/database.sql
 
 volumes:
   mysql_data:
