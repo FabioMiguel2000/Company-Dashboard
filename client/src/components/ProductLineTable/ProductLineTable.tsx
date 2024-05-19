@@ -29,10 +29,10 @@ const ProductLineTable: React.FC = () => {
   return (
     <div>
       <h2>Product Lines</h2>
-      <div className="table-container">
       <div className="table-info">
-          <p>Num. Product Lines: {productLines.length}</p>
-        </div>
+        <p>Num. Product Lines: {productLines.length}</p>
+      </div>
+      <div className="table-container">
         <Table striped bordered hover>
           <thead>
             <tr>

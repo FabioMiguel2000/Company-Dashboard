@@ -29,10 +29,10 @@ const Payments: React.FC = () => {
   return (
     <div>
       <h2>Payments</h2>
-      <div className="table-container">
       <div className="table-info">
-          <p>Num. Payments: {payments.length}</p>
-        </div>
+        <p>Num. Payments: {payments.length}</p>
+      </div>
+      <div className="table-container">
         <Table striped bordered hover>
           <thead>
             <tr>

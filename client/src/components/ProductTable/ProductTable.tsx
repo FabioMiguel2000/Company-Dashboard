@@ -34,10 +34,10 @@ const ProductTable: React.FC = () => {
   return (
     <div>
       <h2>Products</h2>
-      <div className="table-container">
       <div className="table-info">
-          <p>Num. Products: {products.length}</p>
-        </div>
+        <p>Num. Products: {products.length}</p>
+      </div>
+      <div className="table-container">
         <Table striped bordered hover>
           <thead>
             <tr>

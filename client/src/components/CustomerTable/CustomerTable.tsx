@@ -38,10 +38,10 @@ const Customers: React.FC = () => {
   return (
     <div>
       <h2>Customers</h2>
-      <div className="table-container">
         <div className="table-info">
           <p>Num. Customers: {customers.length}</p>
         </div>
+      <div className="table-container">
         <Table striped bordered hover>
           <thead>
             <tr>

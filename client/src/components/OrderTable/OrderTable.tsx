@@ -32,10 +32,10 @@ const OrderTable: React.FC = () => {
   return (
     <div>
       <h2>Orders</h2>
-      <div className="table-container">
       <div className="table-info">
-          <p>Num. Orders: {orders.length}</p>
-        </div>
+        <p>Num. Orders: {orders.length}</p>
+      </div>
+      <div className="table-container">
         <Table striped bordered hover>
           <thead>
             <tr>
