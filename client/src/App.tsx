@@ -8,6 +8,7 @@ import OrderTable from "./components/OrderTable/OrderTable";
 import ProductTable from "./components/ProductTable/ProductTable";
 import OfficeTable from "./components/OfficeTable/OfficeTable";
 import ProductLineTable from "./components/ProductLineTable/ProductLineTable";
+import PaymentTable from "./components/PaymentTable/PaymentTable";
 
 const App: React.FC = () => {
   return (
@@ -22,7 +23,7 @@ const App: React.FC = () => {
             <Route path="/products" element={<ProductTable />} />
             <Route path="/offices" element={<OfficeTable />} />
             <Route path="/productlines" element={<ProductLineTable />} />
-            {/* <Route path="/payments" element={<PaymentTable />} /> */}
+            <Route path="/payments" element={<PaymentTable />} />
             {/* <Route path="/orderdetails" element={<OrderdetailTable />} /> */}
           </Routes>
         </Container>
