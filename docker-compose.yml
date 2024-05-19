@@ -10,10 +10,12 @@ services:
       - "5001:5000"
     environment:
       - FLASK_ENV=development
-      - FLASK_APP=app.py
       - SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:root123@db/classicmodels 
     depends_on:
       - db
+    volumes:
+      - ./server:/app
+
 
   db:
     container_name: company_db
@@ -24,7 +26,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./server/mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
       - ./server/database.sql:/docker-entrypoint-initdb.d/database.sql
 
 volumes:
