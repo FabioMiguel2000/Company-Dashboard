@@ -1,6 +1,21 @@
-version: '3.8'
+version: "3.8"
 
 services:
+  client:
+    container_name: company_client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - server
+
   server:
     container_name: company_server
     build:
@@ -10,12 +25,11 @@ services:
       - "5001:5000"
     environment:
       - FLASK_ENV=development
-      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:root123@db/classicmodels 
+      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:root123@db/classicmodels
     depends_on:
       - db
     volumes:
       - ./server:/app
-
 
   db:
     container_name: company_db
