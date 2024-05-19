@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { Container } from "react-bootstrap";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Sidebar from "./components/Sidebar/Sidebar";
+// import EmployeeTable from './components/EmployeeTable';
+import CustomerTable from "./components/CustomerTable/CustomerTable";
+// Import other model components...
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="app">
+        <Sidebar />
+        <Container fluid className="content">
+          <Routes>
+            <Route path="/customers" element={<CustomerTable />} />
+            {/* <Route path="/employees" element={<EmployeeTable />} />
+            <Route path="/orders" element={<OrderTable />} />
+            <Route path="/products" element={<ProductTable />} />
+            <Route path="/offices" element={<OfficeTable />} />
+            <Route path="/productlines" element={<ProductlineTable />} />
+            <Route path="/payments" element={<PaymentTable />} />
+            <Route path="/orderdetails" element={<OrderdetailTable />} /> */}
+          </Routes>
+        </Container>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </Router>
+  );
+};
 
-export default App
+export default App;
