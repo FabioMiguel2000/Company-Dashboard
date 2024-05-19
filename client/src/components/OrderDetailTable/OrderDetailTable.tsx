@@ -31,6 +31,9 @@ const OrderDetailTable: React.FC = () => {
     <div>
       <h2>Order Details</h2>
       <div className="table-container">
+      <div className="table-info">
+          <p>Num. Order Details: {orderDetails.length}</p>
+        </div>
         <Table striped bordered hover>
           <thead>
             <tr>

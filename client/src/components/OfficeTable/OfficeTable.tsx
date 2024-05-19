@@ -35,6 +35,9 @@ const OfficeTable: React.FC = () => {
     <div>
       <h2>Offices</h2>
       <div className="table-container">
+        <div className="table-info">
+          <p>Num. Offices: {offices.length}</p>
+        </div>
         <Table striped bordered hover>
           <thead>
             <tr>

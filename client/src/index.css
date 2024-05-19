@@ -9,7 +9,7 @@
 }
 
 h2 {
-  padding: 20px 0;
+  padding: 40px 0 20px 0;
 }
 
 .table {
@@ -24,4 +24,18 @@ h2 {
 .table-container{
   max-height: 80vh;
   overflow: auto;
+}
+
+.table-info {
+  display: flex;
+  padding: 5px 10px;
+  background-color: rgba(var(--bs-emphasis-color-rgb), 0.05);
+  border: 1px solid rgba(var(--bs-emphasis-color-rgb), 0.1);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  gap: 10px;
+}
+
+.table-info p {
+  margin: 0;
 }

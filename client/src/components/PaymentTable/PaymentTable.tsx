@@ -30,6 +30,9 @@ const Payments: React.FC = () => {
     <div>
       <h2>Payments</h2>
       <div className="table-container">
+      <div className="table-info">
+          <p>Num. Payments: {payments.length}</p>
+        </div>
         <Table striped bordered hover>
           <thead>
             <tr>
