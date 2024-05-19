@@ -7,3 +7,16 @@
   padding: 20px;
   width: calc(100% - 250px); 
 }
+
+h2 {
+  padding: 20px 0;
+}
+
+.table {
+  table-layout: auto;
+  width: 100%;
+}
+
+.table th, .table td {
+  min-width: 180px;
+}
