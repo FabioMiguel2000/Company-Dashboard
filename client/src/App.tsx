@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import EmployeeTable from "./components/EmployeeTable/EmployeeTable";
 import CustomerTable from "./components/CustomerTable/CustomerTable";
 import OrderTable from "./components/OrderTable/OrderTable";
+import ProductTable from "./components/ProductTable/ProductTable";
 
 const App: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const App: React.FC = () => {
             <Route path="/customers" element={<CustomerTable />} />
             <Route path="/employees" element={<EmployeeTable />} />
             <Route path="/orders" element={<OrderTable />} />
-            {/* <Route path="/products" element={<ProductTable />} /> */}
+            <Route path="/products" element={<ProductTable />} />
             {/* <Route path="/offices" element={<OfficeTable />} /> */}
             {/* <Route path="/productlines" element={<ProductlineTable />} /> */}
             {/* <Route path="/payments" element={<PaymentTable />} /> */}

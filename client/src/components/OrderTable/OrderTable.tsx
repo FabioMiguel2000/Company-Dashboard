@@ -12,7 +12,7 @@ interface Order {
   customerNumber: number;
 }
 
-const Orders: React.FC = () => {
+const OrderTable: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
@@ -62,4 +62,4 @@ const Orders: React.FC = () => {
   );
 };
 
-export default Orders;
+export default OrderTable;
