@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface Order {
   orderNumber: number;
@@ -32,32 +32,34 @@ const OrderTable: React.FC = () => {
   return (
     <div>
       <h2>Orders</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Order Number</th>
-            <th>Order Date</th>
-            <th>Required Date</th>
-            <th>Shipped Date</th>
-            <th>Status</th>
-            <th>Comments</th>
-            <th>Customer Number</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order) => (
-            <tr key={order.orderNumber}>
-              <td>{order.orderNumber}</td>
-              <td>{order.orderDate}</td>
-              <td>{order.requiredDate}</td>
-              <td>{order.shippedDate}</td>
-              <td>{order.status}</td>
-              <td>{order.comments}</td>
-              <td>{order.customerNumber}</td>
+      <div className="table-container">
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Order Number</th>
+              <th>Order Date</th>
+              <th>Required Date</th>
+              <th>Shipped Date</th>
+              <th>Status</th>
+              <th>Comments</th>
+              <th>Customer Number</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {orders.map((order) => (
+              <tr key={order.orderNumber}>
+                <td>{order.orderNumber}</td>
+                <td>{order.orderDate}</td>
+                <td>{order.requiredDate}</td>
+                <td>{order.shippedDate}</td>
+                <td>{order.status}</td>
+                <td>{order.comments}</td>
+                <td>{order.customerNumber}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };

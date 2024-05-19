@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface Office {
   officeCode: string;
@@ -34,36 +34,38 @@ const OfficeTable: React.FC = () => {
   return (
     <div>
       <h2>Offices</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Office Code</th>
-            <th>City</th>
-            <th>Phone</th>
-            <th>Address Line 1</th>
-            <th>Address Line 2</th>
-            <th>State</th>
-            <th>Country</th>
-            <th>Postal Code</th>
-            <th>Territory</th>
-          </tr>
-        </thead>
-        <tbody>
-          {offices.map((office) => (
-            <tr key={office.officeCode}>
-              <td>{office.officeCode}</td>
-              <td>{office.city}</td>
-              <td>{office.phone}</td>
-              <td>{office.addressLine1}</td>
-              <td>{office.addressLine2}</td>
-              <td>{office.state}</td>
-              <td>{office.country}</td>
-              <td>{office.postalCode}</td>
-              <td>{office.territory}</td>
+      <div className="table-container">
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Office Code</th>
+              <th>City</th>
+              <th>Phone</th>
+              <th>Address Line 1</th>
+              <th>Address Line 2</th>
+              <th>State</th>
+              <th>Country</th>
+              <th>Postal Code</th>
+              <th>Territory</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {offices.map((office) => (
+              <tr key={office.officeCode}>
+                <td>{office.officeCode}</td>
+                <td>{office.city}</td>
+                <td>{office.phone}</td>
+                <td>{office.addressLine1}</td>
+                <td>{office.addressLine2}</td>
+                <td>{office.state}</td>
+                <td>{office.country}</td>
+                <td>{office.postalCode}</td>
+                <td>{office.territory}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };

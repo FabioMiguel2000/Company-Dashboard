@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface Payment {
   customerNumber: number;
@@ -29,26 +29,28 @@ const Payments: React.FC = () => {
   return (
     <div>
       <h2>Payments</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Customer Number</th>
-            <th>Check Number</th>
-            <th>Payment Date</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          {payments.map((payment) => (
-            <tr key={`${payment.customerNumber}-${payment.checkNumber}`}>
-              <td>{payment.customerNumber}</td>
-              <td>{payment.checkNumber}</td>
-              <td>{payment.paymentDate}</td>
-              <td>{payment.amount}</td>
+      <div className="table-container">
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Customer Number</th>
+              <th>Check Number</th>
+              <th>Payment Date</th>
+              <th>Amount</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {payments.map((payment) => (
+              <tr key={`${payment.customerNumber}-${payment.checkNumber}`}>
+                <td>{payment.customerNumber}</td>
+                <td>{payment.checkNumber}</td>
+                <td>{payment.paymentDate}</td>
+                <td>{payment.amount}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };

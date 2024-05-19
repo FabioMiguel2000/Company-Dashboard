@@ -20,3 +20,8 @@ h2 {
 .table th, .table td {
   min-width: 180px;
 }
+
+.table-container{
+  max-height: 80vh;
+  overflow: auto;
+}

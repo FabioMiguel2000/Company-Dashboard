@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface ProductLine {
   productLine: string;
@@ -29,26 +29,28 @@ const ProductLineTable: React.FC = () => {
   return (
     <div>
       <h2>Product Lines</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Product Line</th>
-            <th>Text Description</th>
-            <th>HTML Description</th>
-            <th>Image</th>
-          </tr>
-        </thead>
-        <tbody>
-          {productLines.map((productLine) => (
-            <tr key={productLine.productLine}>
-              <td>{productLine.productLine}</td>
-              <td>{productLine.textDescription}</td>
-              <td>{productLine.htmlDescription}</td>
-              <td>{productLine.image}</td>
+      <div className="table-container">
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Product Line</th>
+              <th>Text Description</th>
+              <th>HTML Description</th>
+              <th>Image</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {productLines.map((productLine) => (
+              <tr key={productLine.productLine}>
+                <td>{productLine.productLine}</td>
+                <td>{productLine.textDescription}</td>
+                <td>{productLine.htmlDescription}</td>
+                <td>{productLine.image}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };

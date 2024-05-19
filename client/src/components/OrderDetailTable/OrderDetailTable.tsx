@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface OrderDetail {
   orderNumber: number;
@@ -30,28 +30,30 @@ const OrderDetailTable: React.FC = () => {
   return (
     <div>
       <h2>Order Details</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Order Number</th>
-            <th>Product Code</th>
-            <th>Quantity Ordered</th>
-            <th>Price Each</th>
-            <th>Order Line Number</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orderDetails.map((orderDetail) => (
-            <tr key={`${orderDetail.orderNumber}-${orderDetail.productCode}`}>
-              <td>{orderDetail.orderNumber}</td>
-              <td>{orderDetail.productCode}</td>
-              <td>{orderDetail.quantityOrdered}</td>
-              <td>{orderDetail.priceEach}</td>
-              <td>{orderDetail.orderLineNumber}</td>
+      <div className="table-container">
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Order Number</th>
+              <th>Product Code</th>
+              <th>Quantity Ordered</th>
+              <th>Price Each</th>
+              <th>Order Line Number</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {orderDetails.map((orderDetail) => (
+              <tr key={`${orderDetail.orderNumber}-${orderDetail.productCode}`}>
+                <td>{orderDetail.orderNumber}</td>
+                <td>{orderDetail.productCode}</td>
+                <td>{orderDetail.quantityOrdered}</td>
+                <td>{orderDetail.priceEach}</td>
+                <td>{orderDetail.orderLineNumber}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };

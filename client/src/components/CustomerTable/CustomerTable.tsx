@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface Customer {
   customerNumber: number;
@@ -38,44 +38,46 @@ const Customers: React.FC = () => {
   return (
     <div>
       <h2>Customers</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Customer Number</th>
-            <th>Customer Name</th>
-            <th>Contact Last Name</th>
-            <th>Contact First Name</th>
-            <th>Phone</th>
-            <th>Address Line 1</th>
-            <th>Address Line 2</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Postal Code</th>
-            <th>Country</th>
-            <th>Sales Rep Employee Number</th>
-            <th>Credit Limit</th>
-          </tr>
-        </thead>
-        <tbody>
-          {customers.map((customer) => (
-            <tr key={customer.customerNumber}>
-              <td>{customer.customerNumber}</td>
-              <td>{customer.customerName}</td>
-              <td>{customer.contactLastName}</td>
-              <td>{customer.contactFirstName}</td>
-              <td>{customer.phone}</td>
-              <td>{customer.addressLine1}</td>
-              <td>{customer.addressLine2}</td>
-              <td>{customer.city}</td>
-              <td>{customer.state}</td>
-              <td>{customer.postalCode}</td>
-              <td>{customer.country}</td>
-              <td>{customer.salesRepEmployeeNumber}</td>
-              <td>{customer.creditLimit}</td>
+      <div className="table-container">
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Customer Number</th>
+              <th>Customer Name</th>
+              <th>Contact Last Name</th>
+              <th>Contact First Name</th>
+              <th>Phone</th>
+              <th>Address Line 1</th>
+              <th>Address Line 2</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Postal Code</th>
+              <th>Country</th>
+              <th>Sales Rep Employee Number</th>
+              <th>Credit Limit</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {customers.map((customer) => (
+              <tr key={customer.customerNumber}>
+                <td>{customer.customerNumber}</td>
+                <td>{customer.customerName}</td>
+                <td>{customer.contactLastName}</td>
+                <td>{customer.contactFirstName}</td>
+                <td>{customer.phone}</td>
+                <td>{customer.addressLine1}</td>
+                <td>{customer.addressLine2}</td>
+                <td>{customer.city}</td>
+                <td>{customer.state}</td>
+                <td>{customer.postalCode}</td>
+                <td>{customer.country}</td>
+                <td>{customer.salesRepEmployeeNumber}</td>
+                <td>{customer.creditLimit}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };

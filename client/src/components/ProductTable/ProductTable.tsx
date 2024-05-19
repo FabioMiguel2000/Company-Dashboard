@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface Product {
   productCode: string;
@@ -34,36 +34,38 @@ const ProductTable: React.FC = () => {
   return (
     <div>
       <h2>Products</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Product Code</th>
-            <th>Product Name</th>
-            <th>Product Line</th>
-            <th>Product Scale</th>
-            <th>Product Vendor</th>
-            <th>Product Description</th>
-            <th>Quantity In Stock</th>
-            <th>Buy Price</th>
-            <th>MSRP</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product) => (
-            <tr key={product.productCode}>
-              <td>{product.productCode}</td>
-              <td>{product.productName}</td>
-              <td>{product.productLine}</td>
-              <td>{product.productScale}</td>
-              <td>{product.productVendor}</td>
-              <td>{product.productDescription}</td>
-              <td>{product.quantityInStock}</td>
-              <td>{product.buyPrice}</td>
-              <td>{product.MSRP}</td>
+      <div className="table-container">
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Product Code</th>
+              <th>Product Name</th>
+              <th>Product Line</th>
+              <th>Product Scale</th>
+              <th>Product Vendor</th>
+              <th>Product Description</th>
+              <th>Quantity In Stock</th>
+              <th>Buy Price</th>
+              <th>MSRP</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {products.map((product) => (
+              <tr key={product.productCode}>
+                <td>{product.productCode}</td>
+                <td>{product.productName}</td>
+                <td>{product.productLine}</td>
+                <td>{product.productScale}</td>
+                <td>{product.productVendor}</td>
+                <td>{product.productDescription}</td>
+                <td>{product.quantityInStock}</td>
+                <td>{product.buyPrice}</td>
+                <td>{product.MSRP}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };

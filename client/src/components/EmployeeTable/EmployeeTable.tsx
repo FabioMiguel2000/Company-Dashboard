@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface Employee {
   employeeNumber: number;
@@ -33,34 +33,36 @@ const EmployeeTable: React.FC = () => {
   return (
     <div>
       <h2>Employees</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Employee Number</th>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Extension</th>
-            <th>Email</th>
-            <th>Office Code</th>
-            <th>Reports To</th>
-            <th>Job Title</th>
-          </tr>
-        </thead>
-        <tbody>
-          {employees.map((employee) => (
-            <tr key={employee.employeeNumber}>
-              <td>{employee.employeeNumber}</td>
-              <td>{employee.lastName}</td>
-              <td>{employee.firstName}</td>
-              <td>{employee.extension}</td>
-              <td>{employee.email}</td>
-              <td>{employee.officeCode}</td>
-              <td>{employee.reportsTo}</td>
-              <td>{employee.jobTitle}</td>
+      <div className="table-container">
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Employee Number</th>
+              <th>Last Name</th>
+              <th>First Name</th>
+              <th>Extension</th>
+              <th>Email</th>
+              <th>Office Code</th>
+              <th>Reports To</th>
+              <th>Job Title</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {employees.map((employee) => (
+              <tr key={employee.employeeNumber}>
+                <td>{employee.employeeNumber}</td>
+                <td>{employee.lastName}</td>
+                <td>{employee.firstName}</td>
+                <td>{employee.extension}</td>
+                <td>{employee.email}</td>
+                <td>{employee.officeCode}</td>
+                <td>{employee.reportsTo}</td>
+                <td>{employee.jobTitle}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };
