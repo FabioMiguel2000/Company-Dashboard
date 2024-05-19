@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from "./components/Sidebar/Sidebar";
 import EmployeeTable from "./components/EmployeeTable/EmployeeTable";
 import CustomerTable from "./components/CustomerTable/CustomerTable";
+import OrderTable from "./components/OrderTable/OrderTable";
 
 const App: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/customers" element={<CustomerTable />} />
             <Route path="/employees" element={<EmployeeTable />} />
-            {/* <Route path="/orders" element={<OrderTable />} /> */}
+            <Route path="/orders" element={<OrderTable />} />
             {/* <Route path="/products" element={<ProductTable />} /> */}
             {/* <Route path="/offices" element={<OfficeTable />} /> */}
             {/* <Route path="/productlines" element={<ProductlineTable />} /> */}
