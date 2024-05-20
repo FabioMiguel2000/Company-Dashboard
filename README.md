@@ -48,6 +48,65 @@ and the REST API on:
 
 ```bash
 http://localhost:5001/
+
+```
+
+## Available API Endpoints
+
+### Cutomers
+```
+/customers
+
+/customers/top_spenders
+
+/customers/top_spenders/{percentage}
+```
+
+### Employees
+```
+/employees
+
+/employees/best_sales_volume
+
+/employees/best_sales_volume/{year}
+
+/employees/best_purchase_frequency/
+
+/employees/best_purchase_frequency/{year}
+```
+
+### Offices
+```
+/offices
+```
+
+### Orders
+```
+/orders
+```
+
+### Order Details
+```
+/orderdetails
+```
+
+### Payments
+```
+/payments
+```
+
+### Products
+```
+/products
+
+/products/best_selling
+
+/products/low_stock
+```
+
+### Product Lines
+```
+/productlines
 ```
 
 ## License
