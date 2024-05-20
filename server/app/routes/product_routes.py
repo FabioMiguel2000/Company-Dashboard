@@ -29,3 +29,24 @@ def get_best_selling_products():
     } for product_code, product_name, total_quantity in best_selling_products]
 
     return jsonify(result)
+
+@product_bp.route('/low_stock', methods=['GET'])
+def get_low_stock_products():
+    products_quantity_left = db.session.query(
+        Product.productCode,
+        Product.productName,
+        Product.quantityInStock,
+        (Product.quantityInStock - func.coalesce(func.sum(OrderDetail.quantityOrdered), 0)).label('quantity_left')
+    ).outerjoin(OrderDetail, Product.productCode == OrderDetail.productCode) \
+     .group_by(Product.productCode, Product.productName, Product.quantityInStock) \
+     .order_by('quantity_left') \
+     .all()
+
+    result = [{
+        "productCode": product_code,
+        "productName": product_name,
+        "quantityInStock": quantity_in_stock,
+        "quantityLeft": quantity_left
+    } for product_code, product_name, quantity_in_stock, quantity_left in products_quantity_left]
+
+    return jsonify(result)
