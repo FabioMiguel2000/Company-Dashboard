@@ -12,6 +12,8 @@ interface Office {
   country: string;
   postalCode: string;
   territory: string;
+  customerCount: number;
+  employeeCount: number;
 }
 
 const OfficeTable: React.FC = () => {
@@ -50,6 +52,9 @@ const OfficeTable: React.FC = () => {
               <th>Country</th>
               <th>Postal Code</th>
               <th>Territory</th>
+              <th>Num. of Customers</th>
+              <th>Num. of Employees</th>
+
             </tr>
           </thead>
           <tbody>
@@ -64,6 +69,8 @@ const OfficeTable: React.FC = () => {
                 <td>{office.country}</td>
                 <td>{office.postalCode}</td>
                 <td>{office.territory}</td>
+                <td>{office.customerCount}</td>
+                <td>{office.employeeCount}</td>
               </tr>
             ))}
           </tbody>
