@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from ..models.employee import Employee
 from ..models.customer import Customer
 from ..models.payment import Payment
+from ..models.order import Order
 from ..extensions import db
 from sqlalchemy import func
 
@@ -32,5 +33,28 @@ def get_best_sales_volume_employees(year):
         "firstName": employee.firstName,
         "total_sales": employee.total_sales
     } for employee in employees_sales]
+
+    return jsonify(result)
+
+@employee_bp.route('/best_purchase_frequency/',defaults={'year': 2005}, methods=['GET'])
+@employee_bp.route('/best_purchase_frequency/<int:year>', methods=['GET'])
+def get_best_purchase_frequency_employees(year):
+    employees_frequency = db.session.query(
+        Employee.employeeNumber,
+        Employee.lastName,
+        Employee.firstName,
+        func.count(Order.orderNumber).label('order_count')
+    ).join(Customer, Customer.salesRepEmployeeNumber == Employee.employeeNumber) \
+     .join(Order, Order.customerNumber == Customer.customerNumber) \
+     .filter(func.extract('year', Order.orderDate) == year) \
+     .group_by(Employee.employeeNumber, Employee.lastName, Employee.firstName) \
+     .order_by(func.count(Order.orderNumber).desc()).all()
+
+    result = [{
+        "employeeNumber": employeeNumber,
+        "lastName": lastName,
+        "firstName": firstName,
+        "order_count": order_count
+    } for employeeNumber, lastName, firstName, order_count in employees_frequency]
 
     return jsonify(result)
