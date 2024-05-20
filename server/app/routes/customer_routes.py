@@ -3,10 +3,8 @@ from ..models.customer import Customer
 from ..models.payment import Payment
 from ..extensions import db
 from sqlalchemy import func
-import logging
 
 customer_bp = Blueprint('customer_bp', __name__, url_prefix='/customers')
-app = Flask(__name__)
 
 @customer_bp.route('/', methods=['GET'])
 def get_customers():
