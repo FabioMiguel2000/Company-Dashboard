@@ -46,7 +46,7 @@ def get_low_stock_products():
         "productCode": product_code,
         "productName": product_name,
         "quantityInStock": quantity_in_stock,
-        "quantityLeft": quantity_left
+        "quantityLeft": int(quantity_left)
     } for product_code, product_name, quantity_in_stock, quantity_left in products_quantity_left]
 
     return jsonify(result)
