@@ -10,6 +10,7 @@ import OfficeTable from "./components/OfficeTable/OfficeTable";
 import ProductLineTable from "./components/ProductLineTable/ProductLineTable";
 import PaymentTable from "./components/PaymentTable/PaymentTable";
 import OrderDetailTable from "./components/OrderDetailTable/OrderDetailTable";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <Sidebar />
         <Container fluid className="content">
           <Routes>
+            <Route path="/" element={<Dashboard />} />
             <Route path="/customers" element={<CustomerTable />} />
             <Route path="/employees" element={<EmployeeTable />} />
             <Route path="/orders" element={<OrderTable />} />
