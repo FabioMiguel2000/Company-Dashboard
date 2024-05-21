@@ -25,7 +25,7 @@ def get_best_selling_products():
     result = [{
         "productCode": product_code,
         "productName": product_name,
-        "total_quantity": total_quantity
+        "totalQuantity": total_quantity
     } for product_code, product_name, total_quantity in best_selling_products]
 
     return jsonify(result)
