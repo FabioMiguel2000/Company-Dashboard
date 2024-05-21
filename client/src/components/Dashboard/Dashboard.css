@@ -42,6 +42,20 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.diagrams-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    height: 60vh;
+}
+
+.diagram-container {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+
 @media screen and (max-width: 1400px) {
     .main-card-wrapper {
         grid-template-columns: 1fr 1fr;

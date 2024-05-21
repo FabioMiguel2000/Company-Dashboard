@@ -5,6 +5,8 @@ import {
   CartFill,
   PersonVcardFill,
 } from "react-bootstrap-icons";
+import TopSellingProductsChart from "../TopSellingProductsChart/TopSellingProductsChart";
+import LowStockProducts from "../LowStockProducts/LowStockProducts";
 
 const Dashboard = () => {
   return (
@@ -38,6 +40,14 @@ const Dashboard = () => {
             <p>1232</p>
           </div>
           <PersonVcardFill />
+        </div>
+      </div>
+      <div className="diagrams-wrapper">
+        <div className="diagram-container">
+          <TopSellingProductsChart />
+        </div>
+        <div className="diagram-container">
+          <LowStockProducts />
         </div>
       </div>
     </div>
