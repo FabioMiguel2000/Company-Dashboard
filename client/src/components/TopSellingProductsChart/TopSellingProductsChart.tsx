@@ -20,15 +20,20 @@ ChartJS.register(
   Legend
 );
 
-interface TopSellingProductsChart {
-    topQuantity?: number;
+interface TopSellingProductsChartProps {
+  topQuantity?: number;
 }
 
-const TopSellingProductsChart: React.FC<TopSellingProductsChart> = ({topQuantity = 5}) => {
+const TopSellingProductsChart: React.FC<TopSellingProductsChartProps> = ({
+  topQuantity = 5,
+}) => {
   const [chartData, setChartData] = useState<any>({
     labels: [],
     datasets: [],
   });
+  const [legendData, setLegendData] = useState<
+    { productName: string; color: string }[]
+  >([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,33 +50,75 @@ const TopSellingProductsChart: React.FC<TopSellingProductsChart> = ({topQuantity
         const labels = sortedData.map((item: any) => item.productName);
         const quantities = sortedData.map((item: any) => item.totalQuantity);
 
+        // Generate unique colors for each bar
+        const colors = sortedData.map(
+          (_: any, index: number) =>
+            `hsl(${(index * 360) / sortedData.length}, 70%, 50%)`
+        );
+
+        const legendData = sortedData.map((item: any, index: number) => ({
+          productName: item.productName,
+          color: colors[index],
+        }));
+
         setChartData({
           labels: labels,
           datasets: [
             {
-              label: "Top Selling Products",
+              label: "",
               data: quantities,
-              backgroundColor: "rgba(75, 192, 192, 0.6)",
-              borderColor: "rgba(75, 192, 192, 1)",
+              backgroundColor: colors,
+              borderColor: colors.map((color) => color.replace("70%", "50%")),
               borderWidth: 1,
             },
           ],
         });
+
+        setLegendData(legendData);
       } catch (error) {
         console.error("Error fetching best selling products:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [topQuantity]);
 
   return (
     <div className="chart-container">
       <h2>Top Selling Products</h2>
-      <Bar
-        data={chartData}
-        options={{ responsive: true, maintainAspectRatio: false }}
-      />
+      <div className="legend-container">
+        {legendData.map((item, index) => (
+          <div key={index} className="legend-item">
+            <span
+              className="legend-color"
+              style={{ backgroundColor: item.color }}
+            ></span>
+            {item.productName}
+          </div>
+        ))}
+      </div>
+      <div className="chart-wrapper">
+        <Bar
+          data={chartData}
+          options={{
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                display: false, 
+              },
+              y: {
+                beginAtZero: true,
+              },
+            },
+            plugins: {
+              legend: {
+                display: false, 
+              },
+            },
+          }}
+        />
+      </div>
     </div>
   );
 };
