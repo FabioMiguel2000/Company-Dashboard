@@ -1,13 +1,39 @@
 # Company-Dashboard
 
+![Flask](https://img.shields.io/badge/flask-v3.0.3-green)
+![React](https://img.shields.io/badge/react-v18.2.0-blue)
+![MySQL](https://img.shields.io/badge/mysql-v8.0.37-blue)
+
+
+<p align="center">
+  <img width="600" alt="imagem" src="https://github.com/FabioMiguel2000/Company-Dashboard/assets/50105554/b7c260e8-7f76-42e4-87a2-2d032e32ec7d">
+
+
 ## CONTEXT
 
-Application to analyzes the office, the employees, products and customers that exist in DB;
+Application to analyze the office, the employees, products, and customers that exist in DB;
 
-- **Offices**: Allows analysis of office details, including size in terms of employees and number of customers.
+- **Offices**: Allows analysis of office details, including size in terms of employees and a number of customers.
 - **Products**: Offers information on products, including those low in stock and the best-selling products.
 - **Employees**: Provides insights into employee data, such as potential promotions for the last year: sales volume and frequency of purchases.
-- **Customers**:Which customers should receive an 10% discount as they are among the top 20% customers;
+- **Customers**:Which customers should receive a 10% discount as they are among the top 20% of customers;
+
+## Screenshots
+
+<table>
+   <tr>
+    <th>Dashboard Home Page</th>
+    <th><img src="https://github.com/FabioMiguel2000/Company-Dashboard/assets/50105554/b4ebc334-b778-4d6e-87e1-eaca7f7b0ed0" alt="HomePage"></th>
+  </tr>
+  <tr>
+    <th>Employees Page</th>
+    <th><img src="https://github.com/FabioMiguel2000/Company-Dashboard/assets/50105554/d5ac6a14-a8ab-41f1-bda4-6af4480e8f5f" alt="LoginPage"></th>
+  </tr>
+    <tr>
+    <th>Customers Page</th>
+    <th><img src="https://github.com/FabioMiguel2000/Company-Dashboard/assets/50105554/4b3aa345-e51f-4ac3-9005-475afb5ef885" alt="QuestionPage"></th>
+  </tr>
+</table>
 
 ## How to run
 
