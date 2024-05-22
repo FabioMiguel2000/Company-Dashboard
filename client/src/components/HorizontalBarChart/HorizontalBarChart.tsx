@@ -21,6 +21,7 @@ ChartJS.register(
 );
 
 interface HorizontalBarChartProps {
+    showLabels?: boolean;
   topQuantity?: number;
   endpoint: string;
   label: string;
@@ -30,6 +31,7 @@ interface HorizontalBarChartProps {
 
 const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({
   topQuantity = 5,
+  showLabels = true,
   endpoint,
   label,
   xField,
@@ -79,7 +81,7 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({
     <div className="chart-container">
       <h4>{label}</h4>
       <div className="legend-container">
-        {chartData.labels.map((label: string, index: number) => (
+        {showLabels && chartData.labels.map((label: string, index: number) => (
           <div className="legend-item" key={index}>
             <span
               className="legend-color"
