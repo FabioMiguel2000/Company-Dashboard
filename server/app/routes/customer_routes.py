@@ -34,7 +34,7 @@ def get_top_spenders(percentage):
     result = [{
         "customerNumber": customer_number,
         "customerName": customer_name,
-        "total_spent": total_spent
+        "totalSpent": float(total_spent)
     } for customer_number, customer_name, total_spent in top_spenders]
 
     return jsonify(result)
