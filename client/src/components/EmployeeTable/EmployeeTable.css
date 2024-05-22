@@ -1,0 +1,11 @@
+.best-employees-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.app__employee-table .table-container {
+    max-height: 50vh;
+    overflow: auto;
+}

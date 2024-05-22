@@ -33,7 +33,7 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({
   endpoint,
   label,
   xField,
-  yField
+  yField,
 }) => {
   const [chartData, setChartData] = useState<any>({
     labels: [],
@@ -59,7 +59,9 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({
             {
               label: label,
               data: values,
-              backgroundColor: labels.map(() => `#${Math.floor(Math.random() * 16777215).toString(16)}`),
+              backgroundColor: labels.map(
+                () => `#${Math.floor(Math.random() * 16777215).toString(16)}`
+              ),
               borderColor: "rgba(0,0,0,0.1)",
               borderWidth: 1,
             },
@@ -75,12 +77,15 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({
 
   return (
     <div className="chart-container">
+      <h4>{label}</h4>
       <div className="legend-container">
         {chartData.labels.map((label: string, index: number) => (
           <div className="legend-item" key={index}>
             <span
               className="legend-color"
-              style={{ backgroundColor: chartData.datasets[0].backgroundColor[index] }}
+              style={{
+                backgroundColor: chartData.datasets[0].backgroundColor[index],
+              }}
             ></span>
             {label}
           </div>
@@ -90,7 +95,7 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({
         <Bar
           data={chartData}
           options={{
-            indexAxis: 'y',
+            indexAxis: "y",
             responsive: true,
             maintainAspectRatio: false,
             scales: {

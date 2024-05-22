@@ -1,6 +1,10 @@
 .chart-container {
   height: 100%;
   position: relative;
+  flex: 1;
+}
+.chart-container h4 {
+    margin-bottom: 30px;
 }
 
 .legend-container {
