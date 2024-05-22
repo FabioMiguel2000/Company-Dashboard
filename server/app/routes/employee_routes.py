@@ -29,9 +29,10 @@ def get_best_sales_volume_employees(year):
 
     result = [{
         "employeeNumber": employee.employeeNumber,
+        "fullName": f"{employee.firstName} {employee.lastName}",
         "lastName": employee.lastName,
         "firstName": employee.firstName,
-        "total_sales": employee.total_sales
+        "totalSales": float(employee.total_sales)
     } for employee in employees_sales]
 
     return jsonify(result)
@@ -52,9 +53,10 @@ def get_best_purchase_frequency_employees(year):
 
     result = [{
         "employeeNumber": employeeNumber,
+        "fullName": f"{firstName} {lastName}",
         "lastName": lastName,
         "firstName": firstName,
-        "order_count": order_count
+        "orderCount": order_count
     } for employeeNumber, lastName, firstName, order_count in employees_frequency]
 
     return jsonify(result)
