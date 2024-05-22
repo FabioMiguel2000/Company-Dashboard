@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+
+import HorizontalBarChart from "../HorizontalBarChart/HorizontalBarChart";
+import "./EmployeeTable.css";
 
 interface Employee {
   employeeNumber: number;
@@ -31,8 +33,9 @@ const EmployeeTable: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="app__employee-table">
       <h2>Employees</h2>
+
       <div className="table-info">
         <p>Num. Employees: {employees.length}</p>
       </div>
@@ -65,6 +68,20 @@ const EmployeeTable: React.FC = () => {
             ))}
           </tbody>
         </Table>
+      </div>
+      <div className="best-employees-container">
+        <HorizontalBarChart
+          endpoint="http://localhost:5001/employees/best_sales_volume"
+          label="Top Employees by Sales Volume"
+          xField="fullName"
+          yField="totalSales"
+        />
+        <HorizontalBarChart
+          endpoint="http://localhost:5001/employees/best_purchase_frequency"
+          label="Top Employees by Purchase Frequency"
+          xField="fullName"
+          yField="orderCount"
+        />
       </div>
     </div>
   );

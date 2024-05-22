@@ -25,7 +25,7 @@ def get_best_selling_products():
     result = [{
         "productCode": product_code,
         "productName": product_name,
-        "total_quantity": total_quantity
+        "totalQuantity": total_quantity
     } for product_code, product_name, total_quantity in best_selling_products]
 
     return jsonify(result)
@@ -46,7 +46,7 @@ def get_low_stock_products():
         "productCode": product_code,
         "productName": product_name,
         "quantityInStock": quantity_in_stock,
-        "quantityLeft": quantity_left
+        "quantityLeft": int(quantity_left)
     } for product_code, product_name, quantity_in_stock, quantity_left in products_quantity_left]
 
     return jsonify(result)
